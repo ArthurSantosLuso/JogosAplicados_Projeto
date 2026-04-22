@@ -13,9 +13,14 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField] private KeyCode _attackKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode _defendKey = KeyCode.Mouse1;
 
+    public ActionWindowController _AttackWindow { get { return _attackWindow; } }
+    public ActionWindowController _DefenseWindow { get { return _defenseWindow; } }
+
+    private Animator animator;
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         ValidateReferences();
         SubscribeToWindowEvents();
     }
@@ -27,6 +32,12 @@ public class PlayerCombatController : MonoBehaviour
 
     private void Update()
     {
+        if (_attackWindow == null)
+        {
+            Debug.Log($"o attack window ficou null... tempo: {Time.time}");
+        }
+
+
         HandleInput();
     }
 
@@ -36,13 +47,7 @@ public class PlayerCombatController : MonoBehaviour
         {
             if (_attackWindow.IsActive)
             {
-                // Second press within the window
                 _attackWindow.TryConsumeWindow();
-            }
-            else
-            {
-                // First press
-                _attackWindow.OpenWindow();
             }
         }
 
@@ -51,10 +56,6 @@ public class PlayerCombatController : MonoBehaviour
             if (_defenseWindow.IsActive)
             {
                 _defenseWindow.TryConsumeWindow();
-            }
-            else
-            {
-                _defenseWindow.OpenWindow();
             }
         }
     }
@@ -69,6 +70,8 @@ public class PlayerCombatController : MonoBehaviour
     {
         Debug.Log($"[Combat] Attack LANDED! ({snapshot.Progress * 100f:F0}% through window)");
         // add attack landded visual/audio
+        animator.SetTrigger("Attack");
+        GameManager.Instance.CurrentEnemy.GetComponent<EnemyHealth>().Damage(30);
     }
 
     private void OnAttackWindowExpired(ActionWindowSnapshot snapshot)
@@ -85,7 +88,7 @@ public class PlayerCombatController : MonoBehaviour
 
     private void OnDefenseWindowConsumed(ActionWindowSnapshot snapshot)
     {
-        Debug.Log($"[Combat] Parry SUCCESSFUL! ({snapshot.Progress * 100f:F0}% through window)");
+        Debug.Log($"[Combat] Defense SUCCESSFUL! ({snapshot.Progress * 100f:F0}% through window)");
         // add parry defence visual/audio
     }
 
@@ -93,6 +96,8 @@ public class PlayerCombatController : MonoBehaviour
     {
         Debug.Log("[Combat] Defense FAILED — window expired, guard is down.");
         // add take damage visual/audio
+        GetComponent<PlayerHealth>().Damage(20);
+        animator.SetTrigger("Hurt");
     }
 
     private void SubscribeToWindowEvents()
@@ -137,4 +142,6 @@ public class PlayerCombatController : MonoBehaviour
 
     /// <summary>Called by animation event</summary>
     public void TriggerDefenseWindow() => _defenseWindow.OpenWindow();
+
+    public void TriggerAudio(AudioClip audioClip) => AudioManager.Instance.PlaySound(audioClip);
 }
