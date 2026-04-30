@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System;
-using TMPro.EditorUtilities;
-using UnityEngine.Rendering;
 
 public class ActionWindowController : MonoBehaviour
 {

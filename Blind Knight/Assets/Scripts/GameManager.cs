@@ -1,7 +1,5 @@
-using UnityEditor.Purchasing;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
