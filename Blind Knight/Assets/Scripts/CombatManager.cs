@@ -18,6 +18,21 @@ public class CombatManager : MonoBehaviour
             return _instance;
         }
     }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindReferences();
+    }
+    private void FindReferences()
+    {
+        if (uiHandler == null)
+            uiHandler = FindFirstObjectByType<UIHandler>();
+
+        if (player == null)
+            player = FindFirstObjectByType<GameObject>();
+
+        if (enemy == null)
+            enemy = FindFirstObjectByType<GameObject>();
+    }
 
     void Awake()
     {
