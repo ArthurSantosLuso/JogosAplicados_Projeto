@@ -46,13 +46,13 @@ public class EnemyCombatController : MonoBehaviour
             case DesiredAction.Attack:
                 AudioManager.Instance.PlaySound(attackAudio);
                 Debug.Log("Enemy is attacking! defend!!!!");
-                GameManager.Instance.Player.GetComponent<PlayerCombatController>()._DefenseWindow?.OpenWindow();
+                CombatManager.Instance.Player.GetComponent<PlayerCombatController>()._DefenseWindow?.OpenWindow();
                 break;
 
             case DesiredAction.Break:
                 AudioManager.Instance.PlaySound(breakPostureAudio);
                 Debug.Log("Enemy broke posture! Attack it!!!!");
-                GameManager.Instance.Player.GetComponent<PlayerCombatController>()._AttackWindow?.OpenWindow();
+                CombatManager.Instance.Player.GetComponent<PlayerCombatController>()._AttackWindow?.OpenWindow();
                 break;
         }
 

@@ -71,7 +71,7 @@ public class PlayerCombatController : MonoBehaviour
         Debug.Log($"[Combat] Attack LANDED! ({snapshot.Progress * 100f:F0}% through window)");
         // add attack landded visual/audio
         animator.SetTrigger("Attack");
-        GameManager.Instance.CurrentEnemy.GetComponent<EnemyHealth>().Damage(30);
+        GameManager.Instance.CurrentEnemy.GetComponent<EnemyHealth>().Damage(100);
     }
 
     private void OnAttackWindowExpired(ActionWindowSnapshot snapshot)

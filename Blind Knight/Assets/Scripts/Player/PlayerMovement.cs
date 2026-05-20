@@ -17,7 +17,10 @@ public class PlayerMovement : MonoBehaviour
     private Collider leftCollider;
     [SerializeField]
     private Collider rightCollider;
-    
+
+    [SerializeField]
+    private LayerMask targetLayer;
+
     [SerializeField]
     private float moveDelay = 0.2f;
     
@@ -77,9 +80,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void TryMove(Collider sideCollider, Vector3 direction)
     {
-        MoveLocation targetLocation = GetTouchingMoveLocation(sideCollider);
-        
-        if (targetLocation != null)
+        (MoveLocation targetLocation, GameObject target) = GetTouchingMoveLocation(sideCollider);
+
+        if (targetLocation != null && target != null)
         {
             playerTransform.position = targetLocation.transform.position;
             lastMoveTime = Time.time;
@@ -92,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
             
             // Start new footstep sequence
             footstepCoroutine = StartCoroutine(PlayFootstepSequence());
+
+            target.GetComponent<EventType>().StartEvent();
             
             Debug.Log($"Moved to {targetLocation.name}");
         }
@@ -124,13 +129,14 @@ public class PlayerMovement : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, footstepSounds.Length);
         return footstepSounds[randomIndex];
     }
-    
-    private MoveLocation GetTouchingMoveLocation(Collider collider)
+
+    private (MoveLocation, GameObject) GetTouchingMoveLocation(Collider collider)
     {
         Collider[] touchingColliders = Physics.OverlapBox(
             collider.bounds.center, 
             collider.bounds.extents, 
-            collider.transform.rotation
+            collider.transform.rotation,
+            targetLayer
         );
         
         foreach (Collider touchedCollider in touchingColliders)
@@ -139,10 +145,10 @@ public class PlayerMovement : MonoBehaviour
                 continue;
                 
             MoveLocation moveLocation = touchedCollider.GetComponent<MoveLocation>();
-            if (moveLocation != null)
-                return moveLocation;
+            if (moveLocation != null && !touchedCollider.gameObject.GetComponent<EventType>().hasHappened)
+                return (moveLocation, touchedCollider.gameObject);
         }
         
-        return null;
+        return (null, null);
     }
 }

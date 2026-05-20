@@ -1,5 +1,7 @@
+using Ink.Parsed;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void Init()
     {
         _instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 
@@ -36,16 +39,24 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject player;
-
+    
     public GameObject CurrentEnemy { get; set; }
 
     public GameObject Player { get { return player; } }
 
+    public float SavedPlayerHealth { get; set; }
+    public Vector3 SavedPlayerPosition { get; set; }
+    public List<string> ClearedEventsIds { get; set; } = new();
+
     private void Start()
     {
-        player.GetComponent<PlayerHealth>().OnValueChanged += uiHandler.SetBarValue;
-        //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
-        CurrentEnemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
+        if (uiHandler != null)
+        {
+            player.GetComponent<PlayerHealth>().OnValueChanged += uiHandler.SetBarValue;
+            //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
+            CurrentEnemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
+        }
+
     }
 
     private void Update()
@@ -54,6 +65,9 @@ public class GameManager : MonoBehaviour
         {
             RestartScene();
         }
+
+        if (SavedPlayerPosition != null && SavedPlayerPosition != Vector3.zero)
+            player.transform.position = SavedPlayerPosition;
     }
 
     // Not in use. 

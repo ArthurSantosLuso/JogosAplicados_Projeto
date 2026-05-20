@@ -2490,8 +2490,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452204126}
-  - component: {fileID: 1452204125}
   - component: {fileID: 1452204127}
+  - component: {fileID: 1452204128}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -2499,20 +2499,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1452204125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452204124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded712357731af44c883de03de97bb24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  uiHandler: {fileID: 445679300}
-  player: {fileID: 60265576}
 --- !u!4 &1452204126
 Transform:
   m_ObjectHideFlags: 0
@@ -2542,6 +2528,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   sceneMusic: {fileID: 0}
   musicVolume: 0.09
+--- !u!114 &1452204128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452204124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb8db6fb37b2654693d58f3153bcb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatManager
+  uiHandler: {fileID: 445679300}
+  player: {fileID: 60265576}
+  enemy: {fileID: 847855773}
 --- !u!1001 &1487786596
 PrefabInstance:
   m_ObjectHideFlags: 0

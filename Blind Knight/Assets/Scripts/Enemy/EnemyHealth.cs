@@ -37,6 +37,7 @@ public class EnemyHealth : ValueBase, IDamageable
         // Death logic
         GameManager.Instance.CurrentEnemy = null;
         gameObject.SetActive(false);
+        CombatManager.Instance.ReturnToMap();
     }
 
     public void AddHP(float value)
