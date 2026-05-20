@@ -9,7 +9,7 @@ public class PlayerCombatController : MonoBehaviour
     [Tooltip("The ActionWindowController configured for defending")]
     [SerializeField] private ActionWindowController _defenseWindow;
 
-    [Header("Input Keys (placeholder — replace with your Input System)")]
+    [Header("Input Keys")]
     [SerializeField] private KeyCode _attackKey = KeyCode.Mouse0;
     [SerializeField] private KeyCode _defendKey = KeyCode.Mouse1;
 
