@@ -65,14 +65,14 @@ public class CombatManager : MonoBehaviour
     public Vector3 SavedPlayerPosition { get; set; }
     public List<string> ClearedEventsIds { get; set; } = new();
 
-    private PlayerHealth playerHealth;
+    private PlayerStats playerStats;
 
     private void Start()
     {
-        playerHealth = player.GetComponent<PlayerHealth>();
+        playerStats = player.GetComponent<PlayerStats>();
         if (uiHandler != null)
         {
-            player.GetComponent<PlayerHealth>().OnValueChanged += uiHandler.SetBarValue;
+            player.GetComponent<PlayerStats>().OnValueChanged += uiHandler.SetBarValue;
             //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
             enemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
         }
@@ -100,7 +100,7 @@ public class CombatManager : MonoBehaviour
     //}
     public void ReturnToMap()
     {
-        GameManager.Instance.SavedPlayerHealth = playerHealth.CurrentValue;
+        GameManager.Instance.SavedPlayerHealth = playerStats.CurrentValue;
         SceneManager.LoadScene(0);
     }
 }

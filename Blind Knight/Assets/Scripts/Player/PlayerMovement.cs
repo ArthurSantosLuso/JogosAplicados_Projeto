@@ -57,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsDialoguePlaying)
+        return;
+        
         if (Time.time - lastMoveTime < moveDelay)
             return;
             

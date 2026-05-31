@@ -8,6 +8,7 @@ public class PlayerCombatController : MonoBehaviour
 
     [Tooltip("The ActionWindowController configured for defending")]
     [SerializeField] private ActionWindowController _defenseWindow;
+    private PlayerStats playerStats;
 
     [Header("Input Keys")]
     [SerializeField] private KeyCode _attackKey = KeyCode.Mouse0;
@@ -23,6 +24,7 @@ public class PlayerCombatController : MonoBehaviour
         animator = GetComponent<Animator>();
         ValidateReferences();
         SubscribeToWindowEvents();
+        playerStats = GameManager.Instance.Player.GetComponent<PlayerStats>();
     }
 
     private void OnDestroy()
@@ -35,6 +37,14 @@ public class PlayerCombatController : MonoBehaviour
         if (_attackWindow == null)
         {
             Debug.Log($"o attack window ficou null... tempo: {Time.time}");
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (playerStats.Potions > 0)
+            {
+                playerStats.AddHP(50);
+                playerStats.AddPotions(-1);
+            }
         }
 
 
@@ -71,7 +81,7 @@ public class PlayerCombatController : MonoBehaviour
         Debug.Log($"[Combat] Attack LANDED! ({snapshot.Progress * 100f:F0}% through window)");
         // add attack landded visual/audio
         animator.SetTrigger("Attack");
-        GameManager.Instance.CurrentEnemy.GetComponent<EnemyHealth>().Damage(100);
+        GameManager.Instance.CurrentEnemy.GetComponent<EnemyHealth>().Damage(playerStats.AttackDamage);
     }
 
     private void OnAttackWindowExpired(ActionWindowSnapshot snapshot)
@@ -96,7 +106,7 @@ public class PlayerCombatController : MonoBehaviour
     {
         Debug.Log("[Combat] Defense FAILED — window expired, guard is down.");
         // add take damage visual/audio
-        GetComponent<PlayerHealth>().Damage(20);
+        playerStats.Damage(20);
         animator.SetTrigger("Hurt");
     }
 

@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         if (uiHandler != null)
         {
-            player.GetComponent<PlayerHealth>().OnValueChanged += uiHandler.SetBarValue;
+            player.GetComponent<PlayerStats>().OnValueChanged += uiHandler.SetBarValue;
             //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
             CurrentEnemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
         }

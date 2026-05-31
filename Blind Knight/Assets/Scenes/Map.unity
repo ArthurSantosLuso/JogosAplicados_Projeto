@@ -673,9 +673,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 7
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 4
   combatSceneIdx: 0
   dialogue: {fileID: 0}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &106469054
 PrefabInstance:
@@ -935,6 +941,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213151411}
   - component: {fileID: 213151410}
+  - component: {fileID: 213151412}
   m_Layer: 0
   m_Name: Dialogue Manager
   m_TagString: Untagged
@@ -959,6 +966,12 @@ MonoBehaviour:
   profileImage: {fileID: 1928871989}
   continueIcon: {fileID: 1508178655}
   typingSpeed: 0.04
+  audioSource: {fileID: 213151412}
+  voiceMappingsList:
+  - key: 1_1
+    clip: {fileID: 0}
+  - key: 1_2
+    clip: {fileID: 0}
 --- !u!4 &213151411
 Transform:
   m_ObjectHideFlags: 0
@@ -974,6 +987,103 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &213151412
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213151409}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &316580884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2889,9 +2999,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 5
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 2
   combatSceneIdx: 0
   dialogue: {fileID: 0}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &790892374
 PrefabInstance:
@@ -3500,9 +3616,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 2
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 1
   combatSceneIdx: 0
   dialogue: {fileID: 0}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &958523881
 PrefabInstance:
@@ -4139,9 +4261,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 3
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 2
   combatSceneIdx: 0
   dialogue: {fileID: 4900000, guid: 576a50a2536594b449b5c0a8d8d79f4f, type: 3}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &1007079778
 PrefabInstance:
@@ -6005,9 +6133,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 6
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 0
   combatSceneIdx: 0
   dialogue: {fileID: 0}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1 &1542730621
 GameObject:
@@ -6148,9 +6282,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 1
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 3
   combatSceneIdx: 0
   dialogue: {fileID: 0}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &1576732703
 PrefabInstance:
@@ -6415,9 +6555,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 0
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 0
   combatSceneIdx: 1
   dialogue: {fileID: 0}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &1631859167
 PrefabInstance:
@@ -8362,9 +8508,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 4
+  audioSource: {fileID: 0}
+  restClip: {fileID: 0}
+  potionClip: {fileID: 0}
+  damageUpClip: {fileID: 0}
+  combatClip: {fileID: 0}
   _event: 0
   combatSceneIdx: 1
   dialogue: {fileID: 0}
+  dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &2110544431
 PrefabInstance:
