@@ -51,6 +51,13 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        if (uiHandler != null)
+        {
+            player.GetComponent<PlayerStats>().OnValueChanged += uiHandler.SetBarValue;
+            //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
+            CurrentEnemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
+        }
+
     }
 
     private void OnDisable()

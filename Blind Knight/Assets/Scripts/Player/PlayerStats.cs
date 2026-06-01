@@ -5,8 +5,12 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using UnityEngine.UIElements.Experimental;
 
-public class PlayerHealth : ValueBase, IDamageable
+public class PlayerStats : ValueBase, IDamageable
 {
+    private int _potions = 0;
+    public int Potions { get { return _potions; } }
+    private float _attackDamage = 100f;
+    public float AttackDamage { get { return _attackDamage; } }
     private void Start()
     {
         /// The way the system is now, the health UI value is just shown when the UI is notified that something changed.
@@ -54,5 +58,13 @@ public class PlayerHealth : ValueBase, IDamageable
     public bool CanDamage()
     {
         return currentValue > 0;
+    }
+    public void AddPotions(int amount)
+    {
+        _potions += amount;
+    }
+    public void AddDamage(float amount)
+    {
+        _attackDamage += amount;
     }
 }
