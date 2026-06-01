@@ -48,46 +48,35 @@ public class GameManager : MonoBehaviour
     public Vector3 SavedPlayerPosition { get; set; }
     public List<string> ClearedEventsIds { get; set; } = new();
 
-    private void Start()
+    private void OnEnable()
     {
-        if (uiHandler != null)
-        {
-            player.GetComponent<PlayerHealth>().OnValueChanged += uiHandler.SetBarValue;
-            //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
-            CurrentEnemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
-        }
-
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RestartScene();
-        }
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
-        if (SavedPlayerPosition != null && SavedPlayerPosition != Vector3.zero)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindReferences();
+
+        if (player != null && SavedPlayerPosition != Vector3.zero)
+        {
             player.transform.position = SavedPlayerPosition;
+        }
     }
 
-    // Not in use. 
-    public void ChangeUIBarValue(int barIdx, float currentValue, float maxValue)
+    private void FindReferences()
     {
-        uiHandler.SetBarValue(barIdx, currentValue, maxValue);
+        uiHandler = FindFirstObjectByType<UIHandler>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void DisplayDeathScreen()
+    public void RestartScene()
     {
-        uiHandler.ShowDeathScreen();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
-    private void RestartScene()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    //public void SetEnemyLifeBar()
-    //{
-    //    //uiHandler.currentEnemyLifeBar = CurrentEnemy.
-    //}
 }
