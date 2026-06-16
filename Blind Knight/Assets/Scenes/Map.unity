@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 55088584}
   - component: {fileID: 55088585}
   m_Layer: 6
-  m_Name: Cube (8)
+  m_Name: Boss Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,11 +877,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 7
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
+  dialogueClip: {fileID: 0}
   _event: 4
   combatSceneIdx: 0
   dialogue: {fileID: 0}
@@ -4290,7 +4291,7 @@ GameObject:
   - component: {fileID: 774452620}
   - component: {fileID: 774452621}
   m_Layer: 6
-  m_Name: Cube (6)
+  m_Name: Dialogue Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4414,11 +4415,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 5
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
+  dialogueClip: {fileID: 8300000, guid: faba44015e712144daf867446041eac4, type: 3}
   _event: 2
   combatSceneIdx: 0
   dialogue: {fileID: 4900000, guid: 111237df14eea94488c4e27f1a212775, type: 3}
@@ -4886,8 +4888,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   moveDelay: 0.2
-  footstepSounds: []
-  audioSource: {fileID: 0}
+  footstepSounds:
+  - {fileID: 8300000, guid: 6a293395c0695514e9a7bafe14a5f54c, type: 3}
+  - {fileID: 8300000, guid: 337e2cd00294f1944865ab6e3864207d, type: 3}
+  - {fileID: 8300000, guid: 5f506955cefbf7c40b7764139453c997, type: 3}
+  - {fileID: 8300000, guid: 96c938f53218a944784987f1831cd5cf, type: 3}
+  - {fileID: 8300000, guid: d3f76e26f3626a94b828f09451873614, type: 3}
+  - {fileID: 8300000, guid: bbfaaf9dc897b504590e62e35ff6bd4f, type: 3}
+  - {fileID: 8300000, guid: 3786a28bd062ec54bb5400f8fd0acbce, type: 3}
+  audioSource: {fileID: 213151412}
   numberOfSteps: 3
   timeBetweenSteps: 0.15
   volumeRange: 0.2
@@ -5408,7 +5417,7 @@ GameObject:
   - component: {fileID: 952633298}
   - component: {fileID: 952633299}
   m_Layer: 6
-  m_Name: Cube (3)
+  m_Name: Rest Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5532,11 +5541,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 2
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
+  dialogueClip: {fileID: 0}
   _event: 1
   combatSceneIdx: 0
   dialogue: {fileID: 0}
@@ -5759,11 +5769,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 3
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
+  dialogueClip: {fileID: 8300000, guid: c24abf98515125347aeb805be955786d, type: 3}
   _event: 2
   combatSceneIdx: 0
   dialogue: {fileID: 4900000, guid: 2a4daa69b099be44993a068d423dc5e3, type: 3}
@@ -7896,7 +7907,7 @@ GameObject:
   - component: {fileID: 1538988997}
   - component: {fileID: 1538988998}
   m_Layer: 6
-  m_Name: Cube (7)
+  m_Name: Combat Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8020,13 +8031,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 6
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
+  dialogueClip: {fileID: 0}
   _event: 0
-  combatSceneIdx: 0
+  combatSceneIdx: 1
   dialogue: {fileID: 0}
   dialogueConversationID: 1
   hasHappened: 0
@@ -8169,11 +8181,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 1
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
+  dialogueClip: {fileID: 0}
   _event: 0
   combatSceneIdx: 0
   dialogue: {fileID: 0}
@@ -8630,11 +8643,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
-  combatClip: {fileID: 0}
+  combatClip: {fileID: 8300000, guid: 6d8f77a82ad95fe4584984be7a46a2da, type: 3}
+  dialogueClip: {fileID: 0}
   _event: 0
   combatSceneIdx: 1
   dialogue: {fileID: 0}
@@ -10813,11 +10827,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EventType
   eventId: 4
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 213151412}
   restClip: {fileID: 0}
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
+  dialogueClip: {fileID: 0}
   _event: 0
   combatSceneIdx: 1
   dialogue: {fileID: 0}

@@ -10,7 +10,7 @@ public class EventType : MonoBehaviour
     [SerializeField] private AudioClip potionClip;
     [SerializeField] private AudioClip damageUpClip;
     [SerializeField] private AudioClip combatClip;
-
+    [SerializeField] private AudioClip dialogueClip;
     [SerializeField] private Event _event;
     private int rng;
 
@@ -59,6 +59,7 @@ public class EventType : MonoBehaviour
     private void Dialogue()
     {
         DialogueManager.Instance.EnterDialogueMode(dialogue, dialogueConversationID);
+        AudioManager.Instance.PlaySound(dialogueClip);
     }
 
     private void GetTresure()
