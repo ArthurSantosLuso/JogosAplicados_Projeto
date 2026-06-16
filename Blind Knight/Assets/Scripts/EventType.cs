@@ -43,10 +43,10 @@ public class EventType : MonoBehaviour
 
     private void StartCombat()
     {
+        audioSource.PlayOneShot(combatClip);
         var player = GameManager.Instance.Player;
         GameManager.Instance.SavedPlayerHealth = player.GetComponent<PlayerStats>().CurrentValue;
         GameManager.Instance.SavedPlayerPosition = player.transform.position;
-        audioSource.PlayOneShot(combatClip);
         SceneManager.LoadScene(combatSceneIdx);
     }
 
@@ -59,7 +59,7 @@ public class EventType : MonoBehaviour
     private void Dialogue()
     {
         DialogueManager.Instance.EnterDialogueMode(dialogue, dialogueConversationID);
-        AudioManager.Instance.PlaySound(dialogueClip);
+        audioSource.PlayOneShot(dialogueClip);
     }
 
     private void GetTresure()
