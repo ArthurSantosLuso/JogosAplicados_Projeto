@@ -563,8 +563,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombatController
   _attackWindow: {fileID: 60265580}
   _defenseWindow: {fileID: 60265581}
-  _attackKey: 323
-  _defendKey: 324
 --- !u!114 &60265580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2526,8 +2524,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 785e6ac3a0956a64f8cea3e982cc5f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  sceneMusic: {fileID: 0}
-  musicVolume: 0.09
+  sceneMusic: {fileID: 8300000, guid: 3a7f3c738f1015045aff202dbdc39799, type: 3}
+  musicVolume: 0.04
 --- !u!114 &1452204128
 MonoBehaviour:
   m_ObjectHideFlags: 0

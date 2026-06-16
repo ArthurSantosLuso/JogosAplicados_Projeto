@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class EventType : MonoBehaviour
 {
@@ -47,9 +48,19 @@ public class EventType : MonoBehaviour
         var player = GameManager.Instance.Player;
         GameManager.Instance.SavedPlayerHealth = player.GetComponent<PlayerStats>().CurrentValue;
         GameManager.Instance.SavedPlayerPosition = player.transform.position;
-        SceneManager.LoadScene(combatSceneIdx);
+        SFXLoad(1.5f);
     }
 
+    private void SFXLoad(float delay)
+    {
+        StartCoroutine(LoadSceneWithDelay(delay));
+    }
+
+    IEnumerator LoadSceneWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(combatSceneIdx);
+    }
     private void RestPlayer()
     {
         GameManager.Instance.Player.GetComponent<PlayerStats>().AddHP(20);

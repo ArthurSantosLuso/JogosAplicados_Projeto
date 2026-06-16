@@ -11,8 +11,8 @@ public class PlayerCombatController : MonoBehaviour
     private PlayerStats playerStats;
 
     [Header("Input Keys")]
-    [SerializeField] private KeyCode _attackKey = KeyCode.Mouse0;
-    [SerializeField] private KeyCode _defendKey = KeyCode.Mouse1;
+    private KeyCode _attackKey = KeyCode.F;
+    private KeyCode _defendKey = KeyCode.J;
 
     public ActionWindowController _AttackWindow { get { return _attackWindow; } }
     public ActionWindowController _DefenseWindow { get { return _defenseWindow; } }

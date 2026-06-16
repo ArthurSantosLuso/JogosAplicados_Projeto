@@ -753,7 +753,7 @@ GameObject:
   - component: {fileID: 55088584}
   - component: {fileID: 55088585}
   m_Layer: 6
-  m_Name: Boss Event
+  m_Name: Boss Event (dialogue)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -882,10 +882,10 @@ MonoBehaviour:
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
-  dialogueClip: {fileID: 0}
-  _event: 4
+  dialogueClip: {fileID: 8300000, guid: faba44015e712144daf867446041eac4, type: 3}
+  _event: 2
   combatSceneIdx: 0
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 4900000, guid: 111237df14eea94488c4e27f1a212775, type: 3}
   dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &73942508
@@ -4420,10 +4420,10 @@ MonoBehaviour:
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
-  dialogueClip: {fileID: 8300000, guid: faba44015e712144daf867446041eac4, type: 3}
+  dialogueClip: {fileID: 8300000, guid: c24abf98515125347aeb805be955786d, type: 3}
   _event: 2
   combatSceneIdx: 0
-  dialogue: {fileID: 4900000, guid: 111237df14eea94488c4e27f1a212775, type: 3}
+  dialogue: {fileID: 4900000, guid: 2a4daa69b099be44993a068d423dc5e3, type: 3}
   dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &783091432
@@ -5645,7 +5645,7 @@ GameObject:
   - component: {fileID: 1001287272}
   - component: {fileID: 1001287273}
   m_Layer: 6
-  m_Name: Dialogue Event
+  m_Name: Rest Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5774,10 +5774,10 @@ MonoBehaviour:
   potionClip: {fileID: 0}
   damageUpClip: {fileID: 0}
   combatClip: {fileID: 0}
-  dialogueClip: {fileID: 8300000, guid: c24abf98515125347aeb805be955786d, type: 3}
-  _event: 2
+  dialogueClip: {fileID: 0}
+  _event: 1
   combatSceneIdx: 0
-  dialogue: {fileID: 4900000, guid: 2a4daa69b099be44993a068d423dc5e3, type: 3}
+  dialogue: {fileID: 0}
   dialogueConversationID: 1
   hasHappened: 0
 --- !u!1001 &1075774836

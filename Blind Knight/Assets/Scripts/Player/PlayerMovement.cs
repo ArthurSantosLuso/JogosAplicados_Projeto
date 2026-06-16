@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow) && leftCollider)
         {
             TryMove(leftCollider, Vector3.left);
+
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) && rightCollider)
         {
@@ -89,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerTransform.position = targetLocation.transform.position;
             lastMoveTime = Time.time;
-            
+
             // Stop current footstep coroutine if playing
             if (footstepCoroutine != null)
             {
