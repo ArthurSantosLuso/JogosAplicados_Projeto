@@ -73,15 +73,8 @@ public class CombatManager : MonoBehaviour
         if (uiHandler != null)
         {
             player.GetComponent<PlayerStats>().OnValueChanged += uiHandler.SetBarValue;
-            //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
             enemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
         }
-    }
-
-    // Not in use. 
-    public void ChangeUIBarValue(int barIdx, float currentValue, float maxValue)
-    {
-        uiHandler.SetBarValue(barIdx, currentValue, maxValue);
     }
 
     public void DisplayDeathScreen()
@@ -94,10 +87,6 @@ public class CombatManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    //public void SetEnemyLifeBar()
-    //{
-    //    //uiHandler.currentEnemyLifeBar = CurrentEnemy.
-    //}
     public void ReturnToMap()
     {
         GameManager.Instance.SavedPlayerHealth = playerStats.CurrentValue;

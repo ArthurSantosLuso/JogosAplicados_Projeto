@@ -24,7 +24,7 @@ public class PlayerCombatController : MonoBehaviour
         animator = GetComponent<Animator>();
         ValidateReferences();
         SubscribeToWindowEvents();
-        playerStats = GetComponent<PlayerStats>(); // ← was: GameManager.Instance.Player.GetComponent<PlayerStats>();
+        playerStats = GetComponent<PlayerStats>();
     }
 
     private void OnDestroy()

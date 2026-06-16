@@ -1,10 +1,4 @@
-﻿using TreeEditor;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
-using UnityEngine.UIElements.Experimental;
-
+﻿
 public class PlayerStats : ValueBase, IDamageable
 {
     private int _potions = 0;
@@ -20,7 +14,7 @@ public class PlayerStats : ValueBase, IDamageable
         if (saved > 0)
         {
             currentValue = saved;
-            OnValueChanged?.Invoke(0, currentValue, maxValue); // ← add this
+            OnValueChanged?.Invoke(0, currentValue, maxValue);
         }
     }
 

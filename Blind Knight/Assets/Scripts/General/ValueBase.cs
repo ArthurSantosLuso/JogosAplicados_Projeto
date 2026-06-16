@@ -4,7 +4,6 @@ using UnityEngine;
 public abstract class ValueBase : MonoBehaviour
 {
     // Script base for systems that the main objective is to use a value for something.
-    // Example: Health and Stamina
 
     [SerializeField]
     protected float maxValue = 100;
@@ -38,17 +37,9 @@ public abstract class ValueBase : MonoBehaviour
         currentValue = Mathf.Clamp(currentValue + amount, 0, maxValue);
     }
 
-    protected virtual void ReduceMaximumValue(float amount)
-    {
-        maxValue -= amount;
-        maxValue = Mathf.Max(0, maxValue);
-        currentValue = Mathf.Clamp(currentValue, 0, maxValue);
-    }
-
     protected virtual void IncreaseMaximumValue(float amount)
     {
         maxValue += amount;
     }
-
 }
 

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
-    [Tooltip("Slide bars for UI. Ex: Health and Stamina")]
+    [Tooltip("Slide bars for UI.")]
     [SerializeField]
     private List<Slider> bars;
 

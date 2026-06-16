@@ -7,14 +7,14 @@ public class EnemyHealth : ValueBase, IDamageable
 
     private void Start()
     {
-        /// The way the system is now, the health UI value is just shown when the UI is notified that something changed.
-        /// So in order to initialize the UI, I call this method add the health to the enemy.
         AddHP(maxValue);
         GameManager.Instance.CurrentEnemy = gameObject;
-        //GameManager.Instance.
     }
 
-    // Reduce enemy hp
+    /// <summary>
+    /// Reduce enemy hp
+    /// </summary>
+    /// <param name="damageValue">Amout of HP to be reduced.</param>
     public void Damage(float damageValue)
     {
         base.ReduceValue(damageValue);
@@ -22,7 +22,9 @@ public class EnemyHealth : ValueBase, IDamageable
         VerifyLife();
     }
 
-    // Check if enemy died
+    /// <summary>
+    /// Check if enemy died.
+    /// </summary>
     private void VerifyLife()
     {
         if (currentValue <= 0)
@@ -31,7 +33,9 @@ public class EnemyHealth : ValueBase, IDamageable
         }
     }
 
-    // Trigger enemy death 
+    /// <summary>
+    /// Trigger enemy death.
+    /// </summary>
     private void KillEnemy()
     {
         // Death logic

@@ -40,12 +40,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
     
-    public GameObject CurrentEnemy { get; set; }
-
-    public GameObject Player { get { return player; } }
-    public float SavedPlayerHealth { get; set; }
-    public Vector3 SavedPlayerPosition { get; set; }
-    public List<string> ClearedEventsIds { get; set; } = new();
+    public GameObject       CurrentEnemy { get; set; }
+    public GameObject       Player { get { return player; } }
+    public float            SavedPlayerHealth { get; set; }
+    public Vector3          SavedPlayerPosition { get; set; }
+    public List<string>     ClearedEventsIds { get; set; } = new();
 
     private void OnEnable()
     {
@@ -53,7 +52,6 @@ public class GameManager : MonoBehaviour
         if (uiHandler != null)
         {
             player.GetComponent<PlayerStats>().OnValueChanged += uiHandler.SetBarValue;
-            //player.GetComponent<PlayerStamina>().OnValueChanged += uiHandler.SetBarValue;
             CurrentEnemy.GetComponent<EnemyHealth>().OnValueChangedEnemy += uiHandler.SetCurrentEnemyHealthBar;
         }
 

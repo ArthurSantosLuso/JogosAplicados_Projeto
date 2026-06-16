@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+
 /// <summary>
 /// This class detects target colliders for the player to move to when
 /// their colliders collide with it (MoveLocation)
