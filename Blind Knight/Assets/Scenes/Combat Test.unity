@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActionWindowController
   _windowLabel: Attack
-  _windowDuration: 1
+  _windowDuration: 1.5
   _startupDelay: 0
 --- !u!114 &60265581
 MonoBehaviour:
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActionWindowController
   _windowLabel: Block
-  _windowDuration: 1
+  _windowDuration: 1.5
   _startupDelay: 0
 --- !u!114 &60265582
 MonoBehaviour:

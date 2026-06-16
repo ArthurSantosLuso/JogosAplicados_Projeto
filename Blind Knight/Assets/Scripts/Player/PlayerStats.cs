@@ -1,4 +1,4 @@
-using TreeEditor;
+﻿using TreeEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -9,19 +9,18 @@ public class PlayerStats : ValueBase, IDamageable
 {
     private int _potions = 0;
     public int Potions { get { return _potions; } }
-    private float _attackDamage = 100f;
+    private float _attackDamage = 50f;
     public float AttackDamage { get { return _attackDamage; } }
+
     private void Start()
     {
-        /// The way the system is now, the health UI value is just shown when the UI is notified that something changed.
-        /// So in order to initialize the UI, I call this method add the health to the player.
         AddHP(maxValue);
 
         float saved = GameManager.Instance.SavedPlayerHealth;
         if (saved > 0)
         {
             currentValue = saved;
-            
+            OnValueChanged?.Invoke(0, currentValue, maxValue); // ← add this
         }
     }
 

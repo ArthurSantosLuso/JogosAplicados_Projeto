@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     public GameObject CurrentEnemy { get; set; }
 
     public GameObject Player { get { return player; } }
-
     public float SavedPlayerHealth { get; set; }
     public Vector3 SavedPlayerPosition { get; set; }
     public List<string> ClearedEventsIds { get; set; } = new();
